@@ -1,0 +1,119 @@
+---
+title: "PMS Integration"
+description: "How SUITEe connects to your Property Management System — data flow, supported systems, and what gets synced."
+---
+
+SUITEe works **alongside** your existing PMS (Property Management System), not as a replacement. The PMS handles bookings and billing; SUITEe handles smart devices, access, and energy. They communicate automatically so you never need to enter data twice.
+
+## What is a PMS?
+
+A **PMS (Property Management System)** is the main software that hotels and hospitality businesses use to manage:
+- **Bookings and reservations**
+- **Guest information**
+- **Room availability**
+- **Billing and invoicing**
+
+Think of it as the hotel's "main computer system" for managing the business side of operations.
+
+<Info>
+  SUITEe does **not** replace your PMS. You continue to manage all bookings, pricing, and billing in your PMS as you always have. SUITEe simply reads the booking data and automates everything that happens after a reservation is made.
+</Info>
+
+---
+
+## How the connection works
+
+The data flow between your PMS and SUITEe is **bidirectional** — information flows in both directions:
+
+### From PMS to SUITEe
+
+| Data | What It Contains |
+| :--- | :--- |
+| **Guest name and contact details** | Name, email, phone number |
+| **Room/unit assignment** | Which room the guest is booked into |
+| **Check-in date and time** | When the guest is expected to arrive |
+| **Check-out date and time** | When the guest is expected to depart |
+| **Reservation status** | Confirmed, modified, or cancelled |
+
+### From SUITEe back to PMS
+
+| Data | What It Contains |
+| :--- | :--- |
+| **Room occupancy status** | Whether a room is currently occupied, vacant, or being cleaned |
+| **Device status updates** | Health of smart devices in each room |
+| **Access logs** | Who entered which room and when |
+
+---
+
+## The integration flow
+
+<Steps>
+  <Step title="Integration is set up">
+    During initial setup, the SUITEe team connects your PMS to SUITEe. This is a **one-time configuration** — once set up, the integration runs continuously in the background.
+  </Step>
+
+  <Step title="Booking is created in PMS">
+    A guest books through any channel. The booking is recorded in your PMS as usual.
+  </Step>
+
+  <Step title="PMS sends data to SUITEe automatically">
+    Your PMS automatically pushes the booking data to SUITEe. No manual action needed.
+  </Step>
+
+  <Step title="SUITEe creates the reservation and prepares access">
+    SUITEe creates a reservation record, generates access credentials, and schedules room preparation.
+  </Step>
+
+  <Step title="Changes sync automatically">
+    If the reservation is **modified** (dates changed, room changed) or **cancelled** in the PMS, SUITEe updates automatically:
+    - Modified dates → access credentials are adjusted
+    - Room change → access is moved to the new room
+    - Cancellation → access is revoked immediately
+  </Step>
+</Steps>
+
+<Warning>
+  **Critical rule:** Always make reservation changes in your **PMS first**. SUITEe syncs from the PMS — it is the **source of truth**. Do not try to change booking details directly in SUITEe.
+</Warning>
+
+---
+
+## Supported PMS systems
+
+SUITEe currently integrates with the following PMS systems:
+
+| PMS | Description | Type |
+| :--- | :--- | :--- |
+| **Mews** | A popular cloud-based hotel management system | Cloud |
+| **Apaleo** | A modern, open hospitality platform | Cloud |
+| **Clock+** | A hotel management and POS system | Cloud |
+
+<Info>
+  SUITEe is continuously adding support for more PMS systems. If your PMS is not listed above, contact the [SUITEe team](https://suite-e.com/contact-us/) to discuss integration possibilities.
+</Info>
+
+---
+
+## What happens if the PMS integration has issues?
+
+If the connection between your PMS and SUITEe is disrupted:
+
+| Symptom | What to Check |
+| :--- | :--- |
+| New bookings aren't appearing in SUITEe | Is the PMS integration active? Check Settings → Integrations |
+| Reservation changes aren't syncing | Are there error messages in the Alerts section? |
+| Guest didn't receive access credentials | Was the reservation synced? Check if it appears in SUITEe's reservations list |
+| Data seems outdated | Is the PMS system itself online and functioning? |
+
+<Tip>
+  If you suspect a PMS sync issue, first check the **Alerts** section of the dashboard for any integration error messages. If the problem persists, contact [SUITEe support](https://suite-e.com/contact-us/).
+</Tip>
+
+<CardGroup cols={2}>
+  <Card title="Reservations" icon="calendar-check" href="/dashboard/reservations">
+    How reservations are managed once synced to SUITEe.
+  </Card>
+  <Card title="Before Arrival" icon="plane-arrival" href="/guest-journey/before-arrival">
+    The full pre-arrival automation flow.
+  </Card>
+</CardGroup>

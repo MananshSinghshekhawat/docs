@@ -1,0 +1,132 @@
+---
+title: "User & Team Management"
+description: "Manage who has access to the SUITEe dashboard — add team members, assign roles, and control permissions."
+---
+
+The User & Team Management section lets administrators control who can access the SUITEe dashboard and what they can do within it. This ensures that each team member has the right level of access for their role.
+
+## User roles
+
+SUITEe uses a role-based permission system with three levels:
+
+| Role | What They Can Do | Best For |
+| :--- | :--- | :--- |
+| **Super Admin / Owner** | Full access to everything — settings, billing, users, devices, all properties | Property owners, business owners |
+| **Manager** | Can manage properties, view reports, handle reservations and access. Cannot change system settings or billing. | Property managers, operations leads |
+| **Staff / General User** | Limited access to daily tasks — viewing reservations, checking device status, responding to alerts | Front desk staff, housekeeping supervisors |
+
+<Info>
+  **Principle of least privilege:** Give each team member only the access they need. Front desk staff don't need billing access, and housekeeping doesn't need to change system settings.
+</Info>
+
+---
+
+## Adding a new team member
+
+<Steps>
+  <Step title="Navigate to User Management">
+    From the dashboard sidebar, click on **Users**, **Team**, or **User Management** (depending on your dashboard version).
+  </Step>
+
+  <Step title="Click 'Add User' or 'Invite Team Member'">
+    Click the button to add a new user. You'll see a form to enter their details.
+  </Step>
+
+  <Step title="Enter their details">
+    Provide the following information:
+
+    | Field | Description |
+    | :--- | :--- |
+    | **Name** | The team member's full name |
+    | **Email** | Their email address (used for login and notifications) |
+    | **Role** | Select their role: Super Admin, Manager, or Staff |
+    | **Properties** | Which properties they should have access to (for multi-property setups) |
+  </Step>
+
+  <Step title="Send the invitation">
+    Click **"Invite"** or **"Add"**. The team member will receive an email invitation with instructions to set up their password and log in.
+  </Step>
+</Steps>
+
+<Tip>
+  New team members receive an email with a link to create their password. Make sure to tell them to check their **spam folder** if they don't see the invitation email within a few minutes.
+</Tip>
+
+---
+
+## Changing a user's role
+
+If a team member's responsibilities change (e.g., a staff member is promoted to manager):
+
+1. Navigate to the **User Management** section
+2. Find the user in the list
+3. Click **"Edit"** or click on their profile
+4. Change their **role** to the appropriate level
+5. Click **"Save"**
+
+<Warning>
+  **Be careful when granting Super Admin access.** Super Admins can change system settings, manage billing, and add/remove other users. Only grant this role to trusted individuals who need full system control.
+</Warning>
+
+---
+
+## Removing a team member
+
+When someone leaves the team:
+
+<Steps>
+  <Step title="Navigate to User Management">
+    Go to the Users or Team section in the dashboard.
+  </Step>
+
+  <Step title="Find the user">
+    Locate the team member you want to remove.
+  </Step>
+
+  <Step title="Remove or deactivate">
+    Click **"Remove"**, **"Deactivate"**, or **"Revoke Access"**. Their dashboard access will be immediately disabled.
+  </Step>
+</Steps>
+
+<Warning>
+  **Remove access promptly** when team members leave. A former employee with active dashboard access could potentially view sensitive guest data or modify system settings.
+</Warning>
+
+---
+
+## Viewing user activity
+
+For accountability and security, SUITEe logs user activity on the platform. Administrators can see:
+
+| Activity | What's Logged |
+| :--- | :--- |
+| **Login history** | When each user last logged in |
+| **Access changes** | When someone generated, revoked, or modified access credentials |
+| **Settings changes** | When system settings were modified and by whom |
+| **Device actions** | When someone remotely controlled a device (e.g., adjusted temperature) |
+
+<Info>
+  Activity logs are essential for **security auditing**. If something unexpected happens (e.g., a room temperature was changed without explanation), you can trace it back to the specific user and time.
+</Info>
+
+---
+
+## Best practices for team management
+
+<AccordionGroup>
+  <Accordion title="Use the right role for each person">
+    Don't give everyone Super Admin access. Match roles to responsibilities — front desk staff need to view reservations and generate access codes, but they don't need to change billing settings.
+  </Accordion>
+
+  <Accordion title="Remove access immediately when someone leaves">
+    When a team member departs, remove their SUITEe access on the same day. Don't wait — inactive accounts with valid credentials are a security risk.
+  </Accordion>
+
+  <Accordion title="Review user access regularly">
+    Periodically review who has access to the dashboard and at what level. Remove any accounts that are no longer needed and adjust roles as responsibilities change.
+  </Accordion>
+
+  <Accordion title="Use strong, unique passwords">
+    Encourage all team members to use strong passwords and not share their credentials with others. Each person should have their own account.
+  </Accordion>
+</AccordionGroup>
