@@ -1,105 +1,114 @@
 ---
 title: "Account Settings"
-description: "Configure your SUITEe account — language preferences, dark/light mode, and profile management."
+description: "Complete guide to configuring your SUITEe account — profile management, avatar upload, language preferences, visual theme, quick links, and password settings."
 ---
 
-SUITEe lets you personalise your dashboard experience with language settings, visual themes, and profile management. Your preferences are saved and remembered across sessions.
+SUITEe lets you personalize your platform experience with language preferences, visual themes, quick links shortcuts, and profile management. Your preferences are saved automatically across sessions.
 
-## Language settings
+## Top navigation & header controls
 
-SUITEe supports multiple languages. The platform is currently available in:
+The top navigation header provides quick access to core account tools and platform utility features:
 
-| Language | Code | Flag |
+<Frame>
+  <img src="/images/settings-language-menu.png" alt="Header navigation controls showing notification counter, quick links icon, and language selector dropdown" />
+</Frame>
+
+### 1. Notifications
+Located in the header controls area, the **notification bell** displays an unread counter badge (e.g. `48`). Clicking the notification bell opens your recent system alerts, property updates, and guest activity notifications.
+
+### 2. Quick Links (Schnellzugriff)
+Directly adjacent to the notification bell is the **Quick Links** icon (grid of circles with a plus symbol). Clicking this button opens the **Schnellzugriff** shortcut popup:
+
+<Frame>
+  <img src="/images/settings-quick-links.png" alt="Schnellzugriff (Quick Links) popup menu with shortcuts to devices, property, and email configuration" />
+</Frame>
+
+The Quick Links menu gives property managers one-click shortcuts to key operational areas:
+- **Öffentliche Geräte** — Manage public and shared property devices
+- **Immobilie konfigurieren** — Configure property settings and room configurations
+- **E-Mail-Dienst konfigurieren** — Manage email notification services and SMTP setups
+
+### 3. Language Selector (Sprachauswahl)
+The **language selector** button displays your active language code (e.g., `DE` or `EN`). Clicking it opens the language selection dropdown:
+
+| Language | Code | Native Name |
 | :--- | :--- | :--- |
-| **English** | EN | 🇬🇧 |
-| **German** | DE | 🇩🇪 |
-
-### How to switch languages
-
-<Steps>
-  <Step title="Find the language selector">
-    Look for the **language selector** on the login page or within the dashboard. It is typically displayed as a **flag icon** or **language abbreviation** (e.g., "EN" or "DE").
-  </Step>
-
-  <Step title="Click and choose your language">
-    Click on the language selector and choose your preferred language from the dropdown.
-  </Step>
-
-  <Step title="Interface updates immediately">
-    The entire interface — menus, labels, buttons, and notifications — will update to the selected language instantly.
-  </Step>
-</Steps>
+| **English** | EN | English |
+| **German** | DE | Deutsch |
+| **Polish** | PL | Polski |
+| **Romanian** | RO | Română |
 
 <Info>
-  The language setting affects only the **dashboard interface**. Guest-facing content (such as check-in instructions) may be configured separately based on the guest's preferred language.
+  Selecting a language updates the entire dashboard interface — navigation menus, form fields, action buttons, and system messages — instantly.
 </Info>
 
----
-
-## Dark mode / Light mode
-
-The SUITEe dashboard supports both **dark** and **light** visual themes, so you can choose the look that's most comfortable for you.
-
-| Theme | Best For |
-| :--- | :--- |
-| **Light Mode** | Bright environments, daytime use |
-| **Dark Mode** | Low-light environments, night shifts, reduced eye strain |
-
-### How to switch themes
-
-1. Look for the **theme toggle** in the dashboard settings or header area
-2. Click to switch between **Dark Mode** and **Light Mode**
-3. The change takes effect immediately
-
-<Tip>
-  SUITEe also supports a **System** option that automatically matches your device's theme preference. If your computer is set to dark mode, SUITEe will follow suit.
-</Tip>
+### 4. User Profile Menu
+Clicking your account avatar in the sidebar or header menu opens the user account options:
 
 <Frame>
-  <img src="/images/login-light-mode.png" alt="SUITEe platform showing light theme mode" />
+  <img src="/images/settings-user-menu.png" alt="User profile menu with Profil link, Dunkler Modus toggle, and Abmelden option" />
 </Frame>
+
+The user menu provides:
+- **Profil** — Opens your full account profile page (`/profile`)
+- **Dunkler Modus** — Toggle switch to instantly toggle Dark Mode on or off
+- **Abmelden** — Safely sign out of your SUITEe session
 
 ---
 
-## Profile management
+## Visual theme (Dunkler Modus)
 
-Your SUITEe account profile contains your basic information and access settings.
+SUITEe supports both dark and light visual themes to suit your work environment:
 
-### What you can manage
+- **Dark Mode (Dunkler Modus)** — Ideal for low-light environments, night shifts, and reducing eye strain
+- **Light Mode** — Best for bright office environments and daytime use
 
-| Setting | Description |
-| :--- | :--- |
-| **Display Name** | Your name as shown in the dashboard and to other team members |
-| **Email Address** | The email used for login and notifications |
-| **Password** | Change your password for security (see [Forgot Password](/account/forgot-password)) |
-| **Notification Preferences** | Choose which alerts you receive (email, push, or both) |
+### How to toggle dark mode
+1. Click on your user profile menu at the bottom of the sidebar
+2. Toggle the **Dunkler Modus** switch
+3. The interface theme switches instantly and remembers your setting across logins
 
-### Changing your password
+---
 
-If you want to change your password (not because you forgot it, but as a routine security measure):
+## Profile management (`/profile`)
 
-1. Go to your **Profile** or **Account Settings** page in the dashboard
-2. Look for the **"Change Password"** option
-3. Enter your **current password**
-4. Enter your **new password** and confirm it
-5. Click **"Save"** or **"Update"**
-
-<Warning>
-  After changing your password, you may be logged out and asked to sign in again with the new password. This is normal and expected. If an email reset link expires, the platform alerts you immediately:
-</Warning>
+Access your profile settings by clicking **Profil** in the user menu or navigating to `https://hotel.suite-e.com/profile`.
 
 <Frame>
-  <img src="/images/update-password-actual.png" alt="SUITEe password update link verification and security token guard" />
+  <img src="/images/settings-profile-personal.png" alt="SUITEe Profile page showing profile picture upload badge and Persönliche Informationen section in German" />
 </Frame>
+
+### Profile Picture Upload
+At the top of the profile page, your account display avatar features a green **camera icon badge**.
+- **Uploading an Image**: Click the camera icon on your avatar to select and upload a profile photo from your device.
+- **Display**: Your updated picture will appear in the top navigation bar, sidebar, and throughout team activity logs.
+
+### Personal Information (Persönliche Informationen)
+The **Persönliche Informationen** section displays your core identity and contact details:
+
+| Field | Description |
+| :--- | :--- |
+| **Name** | Your full display name (e.g. `dolly arc 123`) |
+| **E-Mail-Adresse** | Your registered email address used for sign-in and system notifications |
+| **Telefonnummer** | Contact phone number linked to your manager profile |
+| **Benutzerrolle** | Your assigned platform role and access privileges (e.g., Property Admin with full module access) |
+
+To update any of these details, click the **Bearbeiten** (Edit) button in the upper right corner of the **Persönliche Informationen** card.
+
+### Password Security (Passwort)
+The **Passwort** card lets you securely update your account password:
+
+<Frame>
+  <img src="/images/settings-profile-password.png" alt="Passwort section on the SUITEe profile page in German" />
+</Frame>
+
+- **Current Status**: Masked view showing `Neues Passwort` (`••••••••`).
+- **Changing Password**: Click the **Bearbeiten** (Edit) button on the **Passwort** card, enter your current password followed by your new password, and save your changes.
 
 ---
 
-## Session management
+## Session management & security
 
-- **Session timeout** — If you're inactive for an extended period, SUITEe may log you out for security. Simply log in again.
-- **Multiple sessions** — You can be logged in on multiple devices simultaneously (e.g., your computer and phone)
-- **Logout** — Always use the **"Log Out"** button to securely end your session, especially on shared computers
-
-<Tip>
-  **Security best practice:** Always log out of SUITEe when using a shared or public computer. Never save your password in a shared browser.
-</Tip>
+- **Session Timeout** — For security, inactive sessions time out after an extended period of inactivity. Simply sign back in to resume your work.
+- **Multiple Devices** — You can stay signed in across multiple workstations or mobile devices simultaneously.
+- **Secure Logout (Abmelden)** — Always click **Abmelden** in the user menu when using shared or public computers.
