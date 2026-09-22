@@ -32,11 +32,18 @@
         "group": "Admin Dashboard",
         "pages": [
           "dashboard/overview",
+          "dashboard/activity-centre",
+          "dashboard/rooms",
+          "dashboard/booking",
+          "dashboard/devices",
+          "dashboard/access-management",
+          "dashboard/users-management",
+          "dashboard/email-services",
+          "dashboard/explore",
+          "dashboard/settings",
           "dashboard/properties-and-units",
           "dashboard/reservations",
-          "dashboard/access-management",
-          "dashboard/energy-management",
-          "dashboard/users-and-teams"
+          "dashboard/energy-management"
         ]
       },
       {
@@ -77,7 +84,7 @@
       "anchors": [
         {
           "anchor": "Platform",
-          "href": "https://staging-v2.suite-e.com",
+          "href": "https://hotel.suite-e.com/",
           "icon": "arrow-up-right-from-square"
         },
         {
@@ -102,7 +109,7 @@
     "primary": {
       "type": "button",
       "label": "Open Platform",
-      "href": "https://staging-v2.suite-e.com"
+      "href": "https://hotel.suite-e.com/"
     }
   },
   "contextual": {
