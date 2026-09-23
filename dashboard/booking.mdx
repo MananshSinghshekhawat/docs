@@ -1,9 +1,9 @@
 ---
 title: "Booking"
-description: "Manage reservations, digital guest registration, smart room access, and in-room controls directly in SUITEe without requiring an external PMS."
+description: "Manage all property reservations — view booking status, synchronize data from external PMS providers, create manual reservations for No-PMS properties, add rooms, and track the complete guest journey from check-in to check-out."
 ---
 
-The **Booking** page is SUITEe's built-in reservation and guest journey management module. Designed for properties that operate without a third-party Property Management System (PMS), it provides an all-in-one hub to create reservations, handle contactless digital check-ins, generate digital room keys, and automate smart room climate controls.
+The **Booking** page is the central reservation management hub of SUITEe. It displays every booking associated with the currently selected property — whether pulled automatically from an external Property Management System (PMS) or created manually by staff for properties operating without a PMS.
 
 Navigate to this page at:
 
@@ -11,144 +11,277 @@ Navigate to this page at:
 https://hotel.suite-e.com/booking
 ```
 
----
-
-## Premium feature modal
-
-When you navigate to the Booking section on an account where native booking management has not yet been unlocked, the system displays the **Premium Feature** presentation modal.
-
-<Frame>
-  <img src="/images/booking-premium-feature-modal.png" alt="SUITEe Booking Premium Feature modal showing header with close button, Premium-Funktion badge, 4-step guest journey overview, and multi-device preview mockup" />
-</Frame>
-
-### Header and close button
-
-At the top of the modal, you will find:
-
-- **SUITEe Branding**: The official logo and tagline *Smarte Gebäude. Smartere Aufenthalte.* (Smart Buildings. Smarter Stays).
-- **Close Button (`×`)**: Positioned in the upper-right corner of the modal window.
-
 <Warning>
-  **Close Button Redirect**: Clicking the **`×`** button in the top-right corner closes the modal overlay and **immediately redirects you back to the [Dashboard Overview](/dashboard/overview)**. Use this button whenever you want to return to your main dashboard operations.
+  **This is the most critical page in the platform.** Without properly configured bookings, downstream features such as digital guest registration, smart lock PIN generation, automated room climate control, and guest email notifications cannot function. Ensure your property's PMS credentials are configured correctly in [Settings](/dashboard/settings) before expecting booking data to appear.
 </Warning>
 
 ---
 
-### Premium badge and value proposition
+## Page overview
 
-Directly below the header bar, the modal highlights the status and core value of this module:
+When you navigate to the Booking page, the interface presents a complete operational view of your property's reservations. The page layout includes:
 
-- **`🔒 PREMIUM-FUNKTION` Badge**: An orange badge signaling that native PMS-free booking management is an advanced capability that can be activated on your account.
-- **Headline**: *Mehr Möglichkeiten mit SUITEe* (More possibilities with SUITEe).
-- **Core Promise**: *Verwalten Sie die komplette Guest Journey direkt mit SUITEe – ganz ohne PMS.* (Manage the entire guest journey directly with SUITEe — completely without an external PMS).
-
-Traditional hotel and short-stay setups require connecting an external PMS, an access controller, and separate smart home hubs. SUITEe unifies all these layers into one seamless workflow.
+- **Property Switcher** (top-left): A dropdown selector to switch between properties. Changing the property reloads all booking data for the selected property.
+- **Breadcrumbs**: Displays the navigation path `🏠 / Booking`.
+- **Page Heading & Subtitle**: Shows **Buchungen** with the subtitle *Buchungen anzeigen und verwalten* (View and manage bookings). An info tooltip **ⓘ** provides contextual guidance.
+- **Action Buttons**: Top right buttons including **Synchronisieren**, List/Grid view toggles, and new reservation buttons.
+- **Status Summary Cards**: Five colored cards summarizing reservation states at a glance.
+- **Sub-navigation Tabs & Filters**: Quick filters for booking statuses (e.g., Gebucht, Eingecheckt).
+- **Search & Filter Toolbar**: Full-text search and date range filters.
+- **Booking Table**: The main data table listing all reservations with sortable columns.
 
 ---
 
-## The 4-step guest journey workflow
-
-The Booking engine powers four interconnected stages of hospitality operations:
+## Property switcher
 
 <Frame>
-  <img src="/images/booking-guest-journey-workflow.png" alt="Guest journey workflow diagram showing the 4 steps: Buchungen, Gaste-Registrierung, Zimmerzugang, and Smarte Zimmersteuerung, alongside mobile app and desktop booking calendar screens" />
+  <img src="/images/booking-property-switcher.png" alt="Property switcher dropdown showing SUITEe Munich, Property No-PMS, and Savoy Baker Street" />
 </Frame>
 
-The four stages guide a guest from initial booking all the way through their stay:
+The **Property Switcher** dropdown in the top-left corner determines which property's bookings are displayed in the table below. It includes a search bar (`Immobilien suchen`) to quickly find a property.
 
-| Stage | Name | Key Function | Connected Module |
-| :--- | :--- | :--- | :--- |
-| **1** | **Buchungen** | Create and manage reservations | [Rooms](/dashboard/rooms) |
-| **2** | **Gäste-Registrierung** | Contactless digital check-in | [Dashboard Overview](/dashboard/overview) |
-| **3** | **Zimmerzugang** | Share PIN codes and mobile unlock | [Access Management](/dashboard/access-management) |
-| **4** | **Smarte Zimmersteuerung** | Smart heating, AC, and lighting | [Energy Management](/dashboard/energy-management) |
-
----
-
-### Step 1 — Bookings (Buchungen)
-
-The first step covers reservation creation, calendar scheduling, and occupancy tracking:
-
-- **Reservation Scheduling Matrix**: A comprehensive calendar view where every room configured in [Rooms](/dashboard/rooms) is mapped along horizontal rows, and booking dates span across columns.
-- **Real-Time Booking Status Counters**:
-  - **Alle Buchungen** (`170`): Total reservations recorded across the property.
-  - **Gebucht** (`8`): Active upcoming bookings confirmed in the calendar.
-  - **Eingecheckt** (`1`): Guests currently checked into their rooms.
-  - **Ausgecheckt** (`1`): Guests who have completed check-out today.
-  - **Storniert** (`160`): Cancelled bookings retained in the system for auditing and reporting.
-- **Action Buttons**:
-  - **`+ Neue Reservierung`**: Create a new reservation directly inside SUITEe without needing an external booking engine.
-  - **`Synchronisieren`**: Synchronize calendar availability with connected booking channels (OTAs).
-  - **View Toggles**: Switch between the multi-room timeline grid and a detailed list view.
+- **Single Property View**: Only bookings belonging to the selected property are shown at any time.
+- **Dynamic Reload**: Selecting a different property (e.g. switching from `Property No-PMS` to `SUITEe Munich`) triggers a complete reload of:
+  - The status summary cards (counts update to reflect the new property).
+  - The booking table data.
+  - The available action buttons.
+- **PMS Type Detection**: The system detects the selected property's PMS type automatically. This determines which sync pipeline is active and whether manual reservation creation is allowed.
 
 ---
 
-### Step 2 — Guest registration (Gäste-Registrierung)
+## Status summary cards
 
-The second step replaces paper forms and front desk lines with a self-service mobile web portal:
-
-- **Contactless Pre-Arrival Check-In**: Guests receive a secure check-in link prior to arrival.
-- **Digital Guest Card (`Konto erstellen`)**:
-  - Guest personal details (First name, Last name).
-  - Verified mobile phone number and email address.
-  - Check-in and check-out dates verification.
-- **Automatic Identity Linking**: Once submitted, the guest profile is linked to their designated room and assigned smart lock credentials.
-
----
-
-### Step 3 — Room access (Zimmerzugang)
-
-The third step automates door access without requiring physical keys or keycards:
-
-- **Digital Key Sharing**: Automatically delivers temporary access codes and smartphone unlock links directly to the guest upon verified check-in.
-- **Mobile Door Unlock (`Entsperren`)**: Guests can tap a button on their smartphone web app to unlock their room door in real time.
-- **Time-Restricted Security**: Door codes and digital keys are only valid during the exact duration of the reservation — activating at check-in time and immediately expiring at check-out time.
-- **Access Audit Log**: Every unlock event is automatically transmitted to the [Activity Centre](/dashboard/activity-centre) for complete security tracking.
-
-For hardware setup and door lock configurations, see [Access Management](/dashboard/access-management) and [Smart Locks](/devices/smart-locks).
-
----
-
-### Step 4 — Smart room control (Smarte Zimmersteuerung)
-
-The final step empowers guests to personalize their room environment while optimizing property energy costs:
-
-- **In-Stay Guest Dashboard**: Guests access an intuitive in-room control panel on their smartphone (e.g. *Hallo, Art Kuchem*).
-- **Climate Control (`Klimasteuerung`)**:
-  - Real-time temperature display and interactive setpoint wheel (e.g. `20°C`).
-  - Fan speed slider (`Lüftungsgeschwindigkeit`).
-  - Mode selection: **Auto**, **Cool**, **Dry**, and **Fan**.
-- **Energy Automation**: When a booking is checked out or marked vacant, room thermostats automatically revert to eco-mode to reduce utility costs.
-
-To learn more about room energy automation, see [Energy Management](/dashboard/energy-management) and [Thermostats](/devices/thermostats).
-
----
-
-## Activating the booking module
-
-If your property is interested in using SUITEe as your primary reservation management system and managing the complete guest journey without a third-party PMS, you can activate this feature directly with the SUITEe team.
+Directly below the header, five summary cards provide an at-a-glance breakdown of all bookings for the selected property:
 
 <Frame>
-  <img src="/images/booking-premium-contact-cta.png" alt="Contact section showing orange mail icon, Interesse an dieser Funktion heading, WhatsApp support, and support email address" />
+  <img src="/images/booking-status-summary.png" alt="Five status cards showing Alle Buchungen (214), Gebucht (109), Eingecheckt (1), Ausgecheckt (44), and Storniert (60)" />
 </Frame>
 
-### Contact channels
-
-The contact card at the bottom of the page provides direct access to customer support:
-
-| Channel | Contact Details | Use Case |
+| Card | Label | Description |
 | :--- | :--- | :--- |
-| **WhatsApp Support** | Click the WhatsApp Support option in the modal | Instant chat with the SUITEe team for activation questions and pricing |
-| **Email** | [support@suite-e.com](mailto:support@suite-e.com) | Send an email with your property details to request activation of the Booking module |
+| **1** | **Alle Buchungen** (Gesamt) | Total number of booking records for this property across all statuses. Includes active, checked-in, checked-out, and cancelled reservations. |
+| **2** | **Gebucht** (Bevorstehende Aufenthalte) | Confirmed upcoming reservations. These guests have a reservation but have not yet checked in. |
+| **3** | **Eingecheckt** (Derzeit im Haus) | Currently active stays. These guests have completed check-in and are currently occupying their rooms. Smart lock PINs are active during this state. |
+| **4** | **Ausgecheckt** (Abgeschlossene Aufenthalte) | Completed stays. These guests have finished their visit. Upon check-out, room access PINs are automatically deactivated and climate controls revert to eco-mode. |
+| **5** | **Storniert** (Stornierte Buchungen) | Cancelled reservations. These bookings were cancelled either from the PMS or manually. They are retained in the system for auditing, reporting, and historical reference. |
+
+### Sub-navigation Tabs & Filters
+
+Beneath the summary cards is a secondary navigation row that provides quick filtering options:
+- **Tabs**: View counts by category (e.g., `Alle (214)`, `Gebucht (109)`, `Eingecheckt (1)`).
+- **Filter Chips**: Clickable status tags to further narrow down the table view:
+  - `Gebucht`: Confirmed bookings.
+  - `Zugang generiert` (Access generated): Indicates the smart lock PIN or mobile key has been successfully created and sent to the guest.
+  - `Eingecheckt`: Active stays.
+  - `Ausgecheckt`: Completed stays.
+  - `Storniert`: Cancelled bookings.
+  - `Abgeschlossen` (Completed): Fully finalized reservations.
+
+---
+
+## Synchronisieren button
+
+The **Synchronisieren** (Synchronize) button is one of the most important controls on the Booking page. It triggers a manual synchronization of booking data between SUITEe and the property's connected PMS.
+
+### How synchronization works
+
+SUITEe receives booking data through two independent mechanisms:
+
+| Mechanism | Trigger | Frequency | Description |
+| :--- | :--- | :--- | :--- |
+| **Live Webhooks** | PMS sends event automatically | Real-time | When a reservation is created, modified, or cancelled in the PMS, the PMS sends a webhook notification to SUITEe. The system processes this in real time via a RabbitMQ message queue. |
+| **Cron Backfill** | Automated scheduled job | Every 45 minutes | A background cron job (`importBookingsFromPMS`) runs every 45 minutes. It queries each PMS API for a time window of recent reservations and replays them through the same sync pipeline, catching any webhooks that were missed or failed. |
+
+Clicking **Synchronisieren** triggers the **cron backfill pipeline manually**, bypassing the 45-minute schedule. This action is incredibly powerful because it sweeps the PMS for **both past and present data simultaneously**:
+
+- **Restoring Past Data**: It generates and pulls in historical reservations from previous days or weeks (e.g., if the property was just connected to SUITEe, or if an old PMS booking was never successfully transmitted). It looks backward in time to ensure older records are completely populated.
+- **Fetching Present Data (Catching Missed Webhooks)**: It ensures all current and upcoming bookings are up to date. If a live webhook for today's booking was lost due to a network issue or PMS outage, the manual sync instantly recovers that present data.
+- **Unified Retrieval**: You do not need to click different buttons for past vs. present. One click of the sync button actively queries the PMS API for the full configured time window, grabbing everything at once.
+
+<Warning>
+  **Sync is not instant.** The synchronization process queries the PMS API, processes each reservation through the provider-specific pipeline, normalizes the data, and writes it to the database. For properties with hundreds of reservations, this may take several seconds to a few minutes. The booking table will update progressively as records are processed.
+</Warning>
+
+### Supported PMS providers for sync
+
+The following PMS integrations support automatic booking synchronization:
+
+| PMS Provider | Live Webhooks | Cron Backfill | Notes |
+| :--- | :--- | :--- | :--- |
+| **Apaleo** | ✅ | ✅ | Webhooks carry the reservation ID; the system fetches the group booking ID for storage. |
+| **3RPMS** | ✅ (HMAC-signed) | ✅ | Supports room stays moving between reservations. Webhook signature verification ensures authenticity. |
+| **Clock PMS** | ✅ (via AWS SNS) | ✅ | Uses synthetic composite booking IDs (`CLOCK:<propertyId>:<reference>`). |
+| **Mews** | ✅ | ✅ | Groups multiple room reservations under a single group booking ID. |
+| **Ibelsa** | ✅ (HTTP GET) | ✅ | Uses GET requests with query parameters instead of POST webhooks. |
+| **RoomRaccoon** | ✅ (SOAP/XML) | ❌ | No cron backfill — only live webhook processing. Missed webhooks are not recoverable via sync. |
+| **No-PMS** | N/A | N/A | Bookings are created manually in-app. No external synchronization. |
+
+<Warning>
+  **Important Provider Caveats:**
+  - **RoomRaccoon**: Processes webhooks synchronously without a queue or deduplication. Because there is no cron backfill, a missed webhook cannot be recovered by clicking "Synchronisieren". 
+  - **Ibelsa**: Booking creation lacks strict race protection. Concurrent webhooks for the same reservation may result in a queue retry rather than a silent deduplication.
+</Warning>
+
+---
+
+## Search & Filter Toolbar
+
+<Frame>
+  <img src="/images/booking-search-toolbar.png" alt="Search toolbar showing Aufenthaltsdaten date picker, Suche input, and Filter zurücksetzen button" />
+</Frame>
+
+The toolbar above the booking table provides powerful filtering capabilities to quickly find specific reservations:
+
+- **Aufenthaltsdaten (Stay Dates)**: A date range picker (`Zeitraum auswählen`) to filter bookings based on when the guest is staying.
+- **Suche (Search)**: Full-text search with the placeholder `Buchungen nach Reservierung...`. Queries match against booking ID, guest name, room name, and external booking ID.
+- **Filter zurücksetzen**: A button to instantly clear all applied search terms, date ranges, and status filters, returning the table to its default view.
+
+---
+
+## Booking table
+
+<Frame>
+  <img src="/images/booking-table-view.png" alt="Booking table showing columns for Buchungs-ID, Externe Buchungs-ID, Gast, Einchecken, Auschecken, Zimmer, Zugangsstatus, Reg.-Status, and Quelle" />
+</Frame>
+
+The main booking table is the core component of the page, displaying all reservations for the selected property in a structured, sortable format.
+
+### Table columns
+
+Each row in the booking table represents a single reservation. The following columns are displayed:
+
+| Column | Label | Description |
+| :--- | :--- | :--- |
+| **Buchungs-ID** | Booking ID | The display booking ID shown to guests and staff (e.g. `RDMBFJIE-1`). Includes an icon indicating the current status (e.g., calendar for booked, cross for cancelled). |
+| **Externe Buchungs-ID** | External Booking ID | The sales-channel reference, such as the code assigned by an OTA (e.g., Booking.com, Expedia). If the booking is direct, this may show as a dash (`—`). |
+| **Gast** | Guest | The name of the primary guest associated with this reservation (e.g., *Yoshi Mullins*), along with the guest count (e.g., *1 Gast*). |
+| **Einchecken** | Check-In Date | The scheduled check-in date and time, including timezone (e.g. `25 Aug. 2026, 22:00 (CEST)`). |
+| **Auschecken** | Check-Out Date | The scheduled check-out date and time, including timezone. |
+| **Zimmer** | Room | The room name or unit assigned to this booking (e.g., `UNIT-5`). |
+| **Zugangsstatus** | Access Status | Indicates the state of the guest's digital access credentials (e.g., `Teilweise` for partial access, `Gelöscht` for deleted). |
+| **Reg.-Status** | Registration Status | Indicates the state of the digital guest registration (e.g., `Übersprungen` if skipped or bypassed). |
+| **Quelle** | Source | The origin of the booking (e.g., `Direkt` for direct bookings). |
+
+### Row interactions
+
+Clicking on a booking row opens the **Booking Detail View**, where you can:
+
+- View the complete guest profile (name, email, phone number).
+- See the room assignment details and PIN codes.
+- Check the booking's synchronization history and change log.
+- Perform manual check-in or check-out operations.
+
+---
+
+## Add rooms & reservations (No-PMS properties)
+
+Properties operating without a PMS define their room inventory directly within SUITEe. This enables manual reservation creation, smart lock PIN assignment, and room-level device control. 
+
+When a **No-PMS** property is selected in the Property Switcher, special action buttons become available in the top right:
+
+- **+ Zimmer hinzufügen** (Add Rooms): Defines the room inventory (name, code, floor).
+- **+ Neue Reservierung** (New Reservation): Opens a form to create a booking manually (Guest details, Room, Check-In/Check-Out times).
+
+### How No-PMS booking IDs work
+
+When a reservation is created manually, the system generates:
+- **Internal ID**: A standard UUID (`bookings.id`) for internal use across all services.
+- **PMS Booking ID**: A synthetic identifier in the format `NOPMS-<uuid>`. This satisfies the system's requirement that every booking must have a `pms_booking_id`.
+- **Display Booking ID**: A human-readable code in the format `NP-<short>` (e.g. `NP-a3f2`) derived from the internal ID after creation.
+
+<Note>
+  No-PMS bookings follow the same downstream processing as PMS-synced bookings. They trigger PIN generation, guest email dispatch, and room climate automation identically.
+</Note>
+
+---
+
+## Booking synchronization pipeline
+
+Understanding how bookings appear in the table is essential for troubleshooting missing or delayed reservations.
+
+### Data flow overview
+
+```
+External PMS (Apaleo, Mews, 3RPMS, Clock, Ibelsa, RoomRaccoon)
+    │
+    ├── Live Webhook ──→ WebhookController ──→ RabbitMQ Queue ──→ Provider Service
+    │                                                                    │
+    └── Cron Backfill (every 45 min) ──→ Fetch from PMS API ───────────┘
+                                                                        │
+                                                          Provider-specific upsert
+                                                          (creates/updates booking row
+                                                           keyed by pms_booking_id)
+                                                                        │
+                                                          PmsAdapterService.applyUpdate()
+                                                          (normalizes dates, rooms, guests,
+                                                           addresses, status)
+                                                                        │
+                                                          BookingPostProcessorService.run()
+                                                              ├── writeBookingLog()
+                                                              ├── writeStatusHistory()
+                                                              ├── processPinLifecycle()
+                                                              └── syncEmail()
+```
+
+### Why the Sync button restores past data
+
+The cron backfill mechanism queries the PMS API for reservations within a configured time window (not just today's bookings). When triggered manually via the **Synchronisieren** button, it fetches all reservations from the PMS that fall within the window and replays each one through the provider pipeline. 
+
+### Idempotency and Duplication Prevention
+
+To prevent duplicate bookings when replaying historical data or receiving duplicate webhooks, the system relies on two layers of idempotency:
+
+1. **Event-Level Deduplication**: The system logs inbound webhooks in `pms_webhook_events`. If a PMS re-delivers the exact same webhook event ID (e.g., due to a timeout), SUITEe recognizes it as a duplicate and discards it early.
+2. **Entity-Level Idempotency**: At the database level, the system uses the `pms_booking_id` as a unique lock (`upsert`). If a webhook was missed but the reservation is later pulled by the cron job, the system creates it. If the reservation already exists, the `upsert` simply updates the existing row rather than duplicating it. This is what makes the manual sync button safe to press at any time.
+
+---
+
+## Booking ID system
+
+SUITEe uses distinct identifier columns for each booking. Understanding these is important when cross-referencing reservations:
+
+| Identifier | Column | Source | Example | Visible To |
+| :--- | :--- | :--- | :--- | :--- |
+| **Internal ID** | `bookings.id` | Auto-generated UUID | `5e1c7b90-...` | System internal only |
+| **PMS Booking ID** | `bookings.pms_booking_id` | PMS or synthetic | `EHRSJKHR` (Apaleo), `CLOCK:8f3c:478` (Clock) | Admin dashboard |
+| **Display Booking ID** | `bookings.display_booking_id` | PMS | `RDMBFJIE-1` (shown in table) | Guests and staff |
+| **Channel Reference** | `bookings.external_booking_id` | OTA/Channel | `BDC-5512309` (Booking.com) | Admin dashboard |
+
+<Warning>
+  The **Display Booking ID** is what guests see in their confirmation emails and check-in links. The **PMS Booking ID** is the internal correlation key used for synchronization. These are often different values. The **External Booking ID** specifically holds the channel reference (like Booking.com), not the PMS reservation ID.
+</Warning>
+
+### Guest Web API Identifier Usage
+
+When interacting with guest-facing applications (like the digital check-in web app):
+- **Guest API Routes** (e.g., `/guest/:bookingId/checkin`) exclusively use the **Internal ID** (the UUID).
+- **Public Lookups** (e.g., searching for a booking via the web app) match against the **Display Booking ID** or **External Booking ID**.
+- The **PMS Booking ID** is strictly for internal synchronization and is **never** exposed in guest API responses.
 
 ---
 
 ## Interconnected dashboard modules
 
-The Booking system connects with several other areas of the SUITEe platform:
+The Booking system connects with almost every other area of the SUITEe platform:
 
-- **[Dashboard Overview](/dashboard/overview)**: The main control hub. Clicking the **`×`** close button on the booking modal redirects here.
-- **[Rooms](/dashboard/rooms)**: All rooms, room codes, and device assignments configured in the Rooms module appear as rows in the Booking schedule matrix.
-- **[Activity Centre](/dashboard/activity-centre)**: Logs all reservation check-in events, smart lock unlocks, and digital key activations.
-- **[Access Management](/dashboard/access-management)**: Manages door passwords, smart locks, and master PIN configurations linked to guest stays.
-- **[Energy Management](/dashboard/energy-management)**: Handles temperature setback schedules and climate automation linked to reservation occupancy states.
+- **[Dashboard Overview](/dashboard/overview)**: Displays live booking counters and recent check-in activity.
+- **[Rooms](/dashboard/rooms)**: Room codes map PMS rooms to SUITEe rooms.
+- **[Activity Centre](/dashboard/activity-centre)**: Logs all booking events.
+- **[Access Management](/dashboard/access-management)**: PIN codes activate at check-in and expire at check-out.
+- **[Email Services](/dashboard/email-services)**: Dispatches guest communication templates.
+- **[Energy Management](/dashboard/energy-management)**: Room thermostats respond to occupancy status.
+
+---
+
+## Troubleshooting
+
+### Bookings not appearing after PMS connection
+1. Verify that PMS credentials are correctly configured in [Settings → Konto](/dashboard/settings).
+2. Click the **Synchronisieren** button to trigger a manual sync.
+3. Check the [Activity Centre](/dashboard/activity-centre) for webhook delivery errors.
+
+### Duplicate bookings
+Duplicate bookings should not occur under normal operation because the system uses `pms_booking_id` as a unique idempotency key. If duplicates appear, they may be legitimate separate reservations with similar guest names, or the PMS (e.g., RoomRaccoon) may be sending webhooks with missing unique identifiers.
+
+### Sync not recovering old bookings
+The cron backfill queries a finite time window. Very old reservations (beyond the configured window) may not be recoverable via the Sync button. Contact SUITEe support to request a manual historical import.

@@ -55,9 +55,7 @@ SUITEe's smart locks are **digital locks** that can be opened using:
 | **Fire-rated doors** | Secure corridor and stairwell doors (fire-compliant) |
 | **Amenity area doors** | Spa, gym, pool, parking garage access |
 
-<Frame>
-  <img src="/images/smart-locks.png" alt="SUITEe smart locks and access management dashboard showing online status, battery levels, and PIN generation" />
-</Frame>
+| **Amenity area doors** | Spa, gym, pool, parking garage access |
 
 ---
 
@@ -96,13 +94,21 @@ Every SUITEe smart lock has a **manual key override** — a traditional keyhole 
 
 From the dashboard, you can monitor every smart lock in your property:
 
-| Status | Meaning |
+| Column | Description |
 | :--- | :--- |
-| **Online** | Lock is communicating with the system normally |
-| **Offline** | Lock has lost connection — check gateway and battery |
-| **Low Battery** | Battery needs replacement soon |
-| **Locked** | Door is currently locked |
-| **Unlocked** | Door is currently unlocked (or was recently opened) |
+| **Zimmername** | The room or unit the lock is assigned to |
+| **Gerät** | The name and category of the lock (e.g., *Haupttürschloss 85 German U*) |
+| **Batterie** | The current battery percentage (e.g., 86%). Warnings appear when this drops too low. |
+| **Verbindung** | Network status (Online or Offline). Indicates if the lock is communicating via the gateway. |
+| **Zustand** | The physical state of the lock (Locked/Unlocked) |
+
+### Remote Unlocking
+
+Staff can trigger a remote unlock directly from the dashboard if a guest is locked out or during an emergency. Clicking on a lock reveals the **Geräteaktionen** (Device Actions) panel with a prominent **Unlock door** button.
+
+<Frame>
+  <img src="/images/devices-detail-actions.png" alt="Smart lock device actions panel showing online status, battery level, and manual Unlock door button" />
+</Frame>
 
 <CardGroup cols={2}>
   <Card title="Access Management" icon="key" href="/dashboard/access-management">
